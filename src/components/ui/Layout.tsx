@@ -1,8 +1,11 @@
 import { Container } from '@mui/material'
-import { FC } from 'react'
-import { LayoutProps } from '../../../.next/types/app/layout'
+import { FC, ReactNode } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+
+interface LayoutProps {
+  children: ReactNode
+}
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (

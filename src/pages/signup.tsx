@@ -1,3 +1,5 @@
+import { Typography } from "@mui/material";
+
 export default function Signup() {
-  return <h1>Signup Page</h1>
+  return <Typography variant="h1">Signup Page</Typography>
 }
