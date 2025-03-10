@@ -2,14 +2,24 @@
 
 import { createTheme } from "@mui/material";
 
+const commonBtnStyles = {
+  height: 40,
+  borderRadius: 32,
+  padding: "10px 16px",
+}
+
 const theme = createTheme({
   palette: {
     primary: {
       main: '#2F3C7E',
-      contrastText: '2D2D2D', 
+      contrastText: '#FFFFFF',
     },
     secondary: {
       main: '#FBEAEB',
+    },
+    info: {
+      main: "#2D2D2D",
+      contrastText: "#FFFFFF",
     },
     background: {
       default: '#FBEAEB',
@@ -53,6 +63,104 @@ const theme = createTheme({
       color: '#0E0E2C',
     },
   },
+  components: {
+    MuiButton: {
+      variants: [
+        // Primary btn
+        {
+          props: { variant: "contained", color: "primary" },
+          style: {
+            backgroundColor: "primary.main",
+            color: "#FFFFFF",
+            ...commonBtnStyles,
+            "&.Mui-disabled": {
+              backgroundColor: "#B6C2F2", 
+              color: "white",
+            },
+            "&:hover": {
+              backgroundColor: "#222D6B",
+            },
+          },
+        },
+        
+        // Secondary btn
+        {
+          props: { variant: "outlined", color: "secondary" },
+          style: {
+            border: "1px solid #2F3D7E",
+            backgroundColor: "#FFFFFF",
+            color: "#2F3D7E",
+            ...commonBtnStyles,
+            "&.Mui-disabled": {
+              border: "1px solid #DAE0F8",
+              backgroundColor: "#FFFFFF", 
+              color: "#B6C2F2",
+            },
+            "&:hover": {
+              border: "1px solid #222D6B",
+              backgroundColor: "#F9FAFB",
+              color: "222D6B",
+            },
+          },
+        },
+
+        // Black btn
+        {
+          props: { variant: "contained", color: "info" },
+          style: {
+            backgroundColor: "2D2D2D",
+            color: "#FFFFFF",
+            ...commonBtnStyles,
+            "&.Mui-disabled": {
+              backgroundColor: "#201618", 
+              color: "#FFFFFF",
+            },
+            "&:hover": {
+              backgroundColor: "#262021",
+            },
+          },
+        },
+
+        // Link btn
+        {
+          props: { variant: "text", color: "primary"},
+          style: {
+            color: "primary.main",
+            textDecoration: "none",
+            "&:hover": {
+              color: "#222D6B",
+            },
+            "&.Mui-disabled": {
+              color: "#B6C2F2",
+            },
+          },
+        },
+
+        // Black Link btn
+        {
+          props: { variant: "text", color: "info"},
+          style: {
+            color: "info.main",
+            textDecoration: "none",
+            "&:hover": {
+              color: "#262021",
+            },
+            "&.Mui-disabled": {
+              color: "#818181",
+            },
+          },
+        },
+
+        // Btn with icon
+        {
+          props: { startIcon: true },
+          style: {
+            paddingLeft: "12px",
+          },
+        },
+      ]
+    }
+  }
 })
 
 export default theme

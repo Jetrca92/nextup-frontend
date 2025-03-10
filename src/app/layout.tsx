@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <ThemeProvider theme={theme}>
           <Navbar />
-            <Container sx={{ bgcolor: "tomato" }}>{children}</Container>
+            <Container sx={{ bgcolor: "white" }}>{children}</Container>
           <Footer />
         </ThemeProvider>
       </body>
