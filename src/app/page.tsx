@@ -1,19 +1,25 @@
-import { TextField } from "@mui/material";
+'use client'
+
+import CustomInput from "@/components/ui/CustomInput";
+import theme from "@/theme/theme";
+import { ThemeProvider } from "@emotion/react";
 
 export default function Home() {
-  const isError = false
+  const isError = true
+  const errorText = "error wrong email"
   return (
     <>
-      <TextField
-        label="Your Label"
-        variant="outlined"
-        color="primary"
-        error={isError}
-        helperText={isError ? "Error message" : " "}
-        sx={{
-          margin: 5,
-        }}
-      />
+      <ThemeProvider theme={theme}>
+        <CustomInput
+          id="email"
+          label="Email Address"
+          placeholder="Enter your email"
+          type="email"
+          error={isError}
+          errorText={errorText}
+          required
+        />
+      </ThemeProvider>
     </>
   )
 }

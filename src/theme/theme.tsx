@@ -64,6 +64,53 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: "32px",
+          backgroundColor: "#FFFFFF", 
+          paddingTop: "22px",
+          "&.Mui-focused": {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "primary.main",
+            },
+          },
+          "&.Mui-error": {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#FF3D00",
+            },
+          },
+        },
+        notchedOutline: {
+          borderColor: "#FFFFFF",
+          "& legend": {
+            display: "none", // **Removes the notch completely**
+          },
+        },
+        input: {
+          height: "40px",
+          padding: "10px 16px",
+          color: "#000000",
+          "&::placeholder": {
+            color: "#667085",
+            opacity: 1,
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "#000000",
+          fontSize: "1rem",
+          transform: "translate(14px, -6px) scale(1)", // Keeps label at the top
+          position: "absolute",
+        },
+      },
+      defaultProps: {
+        shrink: true,
+      },
+    },
     MuiButton: {
       variants: [
         // Primary btn
