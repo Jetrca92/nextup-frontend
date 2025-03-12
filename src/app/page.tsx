@@ -1,25 +1,22 @@
 'use client'
 
-import CustomInput from "@/components/ui/CustomInput";
+import FeaturedEventCard from "@/components/FeaturedEventCard";
 import theme from "@/theme/theme";
-import { ThemeProvider } from "@emotion/react";
-
+import { ThemeProvider } from "@mui/material";
 export default function Home() {
-  const isError = true
-  const errorText = "error wrong email"
+  const attendance = 100
   return (
     <>
       <ThemeProvider theme={theme}>
-        <CustomInput
-          id="email"
-          label="Email Address"
-          placeholder="Enter your email"
-          type="email"
-          error={isError}
-          errorText={errorText}
-          required
+        <FeaturedEventCard
+          imageSrc="/eminem.jfif"
+          title="Eminem"
+          startDateTime="1.2.2022, 20:00"
+          location="6391 Elgin St. Celina, Delaware"
+          attendance={attendance}
         />
       </ThemeProvider>
+
     </>
   )
 }

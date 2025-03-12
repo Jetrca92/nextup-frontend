@@ -64,11 +64,18 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        "*, *::before, *::after": {
+          boxSizing: "border-box",
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
           borderRadius: "32px",
-          backgroundColor: "#FFFFFF", 
+          backgroundColor: "#FFFFFF",
           paddingTop: "22px",
           "&.Mui-focused": {
             "& .MuiOutlinedInput-notchedOutline": {
@@ -121,7 +128,7 @@ const theme = createTheme({
             color: "#FFFFFF",
             ...commonBtnStyles,
             "&.Mui-disabled": {
-              backgroundColor: "#B6C2F2", 
+              backgroundColor: "#B6C2F2",
               color: "white",
             },
             "&:hover": {
@@ -129,7 +136,7 @@ const theme = createTheme({
             },
           },
         },
-        
+
         // Secondary btn
         {
           props: { variant: "outlined", color: "secondary" },
@@ -137,10 +144,11 @@ const theme = createTheme({
             border: "1px solid #2F3D7E",
             backgroundColor: "#FFFFFF",
             color: "#2F3D7E",
+            width: "100%",
             ...commonBtnStyles,
             "&.Mui-disabled": {
               border: "1px solid #DAE0F8",
-              backgroundColor: "#FFFFFF", 
+              backgroundColor: "#FFFFFF",
               color: "#B6C2F2",
             },
             "&:hover": {
@@ -159,7 +167,7 @@ const theme = createTheme({
             color: "#FFFFFF",
             ...commonBtnStyles,
             "&.Mui-disabled": {
-              backgroundColor: "#201618", 
+              backgroundColor: "#201618",
               color: "#FFFFFF",
             },
             "&:hover": {
@@ -170,7 +178,7 @@ const theme = createTheme({
 
         // Link btn
         {
-          props: { variant: "text", color: "primary"},
+          props: { variant: "text", color: "primary" },
           style: {
             color: "primary.main",
             textDecoration: "none",
@@ -185,7 +193,7 @@ const theme = createTheme({
 
         // Black Link btn
         {
-          props: { variant: "text", color: "info"},
+          props: { variant: "text", color: "info" },
           style: {
             color: "info.main",
             textDecoration: "none",
