@@ -75,12 +75,14 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
             width: "335px",
             height: "auto",
             justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <Box
             sx={{
               display: "flex",
               gap: "4px",
+              alignItems: "center",
             }}
           >
             <LocationIcon />
