@@ -62,6 +62,7 @@ const theme = createTheme({
       lineHeight: '1rem',
       color: '#0E0E2C',
     },
+
   },
   components: {
     MuiCssBaseline: {
