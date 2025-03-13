@@ -4,7 +4,7 @@ import { FC } from "react"
 const FooterLogo: FC = () => {
   return (
     <Image
-      src="/images/logo.png"
+      src="/images/footer-logo.png"
       alt="Nextup Logo"
       width={115}
       height={24}

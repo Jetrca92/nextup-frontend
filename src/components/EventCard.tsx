@@ -39,7 +39,7 @@ const EventCard: React.FC<EventCardProps> = ({
         }}
       >
         <Typography variant="h3">28. Aug</Typography>
-        <Typography variant="caption">Fri 22.00</Typography>
+        <Typography variant="caption">Fri 22.00{startDateTime}</Typography>
       </Box>
 
       {/* Title and location */}

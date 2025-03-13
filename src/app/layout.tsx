@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 import { Poppins } from 'next/font/google'
-import { Container, ThemeProvider } from "@mui/material"
+import { Box, Container, ThemeProvider } from "@mui/material"
 import theme from "@/theme/theme"
 import Navbar from "@/components/ui/Navbar"
 import Footer from "@/components/ui/Footer"
 
-const poppins = Poppins({ 
+const poppins = Poppins({
   weight: ["400", "500", "600"],
-  subsets: ["latin"], 
+  subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
@@ -22,11 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={poppins.className} style={{ margin: 0, padding: 0 }}>
         <ThemeProvider theme={theme}>
-          <Navbar />
-            <Container sx={{ bgcolor: "white" }}>{children}</Container>
-          <Footer />
+          <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+            <Navbar />
+            <Container sx={{ bgcolor: "white", flex: 1 }}>{children}</Container>
+            <Footer />
+          </Box>
         </ThemeProvider>
       </body>
     </html>

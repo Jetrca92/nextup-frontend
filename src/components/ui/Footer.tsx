@@ -1,12 +1,11 @@
 import { Box, Typography } from '@mui/material'
-import Image from 'next/image'
 import { FC } from 'react'
 import FooterLogo from './images/FooterLogo'
 
 const Footer: FC = () => {
   return (
     <Box sx={{
-      padding: '32px 120px',
+      padding: { xs: "16px 24px", sm: "24px 48px", md: "32px 120px" },
       boxSizing: 'border-box',
       background: '#FFFFFF',
       width: '100%',
