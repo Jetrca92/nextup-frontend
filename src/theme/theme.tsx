@@ -126,6 +126,7 @@ const theme = createTheme({
           style: {
             backgroundColor: "primary.main",
             color: "#FFFFFF",
+            width: "100%",
             ...commonBtnStyles,
             "&.Mui-disabled": {
               backgroundColor: "#B6C2F2",

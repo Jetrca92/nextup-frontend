@@ -1,10 +1,23 @@
+import { Box, Typography } from '@mui/material'
+import Image from 'next/image'
 import { FC } from 'react'
+import FooterLogo from './images/FooterLogo'
 
 const Footer: FC = () => {
   return (
-    <footer style={{ padding: '1rem', background: '#222', color: '#fff', marginTop: 'auto' }}>
-      <p>© 2025 My Website</p>
-    </footer>
+    <Box sx={{
+      padding: '32px 120px',
+      boxSizing: 'border-box',
+      background: '#FFFFFF',
+      width: '100%',
+      height: '88px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    }}>
+      <FooterLogo />
+      <Typography color='primary.main'>All Rights Reserved | skillupmentor.com</Typography>
+    </Box>
   )
 }
 
