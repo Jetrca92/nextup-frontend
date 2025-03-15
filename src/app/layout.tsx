@@ -24,9 +24,26 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className} style={{ margin: 0, padding: 0 }}>
         <ThemeProvider theme={theme}>
-          <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+          <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+            margin: 0,
+            padding: 0,
+            width: "100%"
+          }}>
             <Navbar />
-            <Container sx={{ bgcolor: "white", flex: 1 }}>{children}</Container>
+            <Container
+              maxWidth={false}
+              disableGutters
+              sx={{
+                bgcolor: "secondary.main",
+                flex: 1,
+                width: "100%",
+                margin: 0,
+                padding: 0,
+              }}
+            >{children}</Container>
             <Footer />
           </Box>
         </ThemeProvider>

@@ -4,7 +4,7 @@ import { Box, Button, Typography } from "@mui/material";
 export default function Home() {
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", backgroundColor: "secondary.main", margin: "0px" }}>
 
         {/* Left side */}
         <Box sx={{
