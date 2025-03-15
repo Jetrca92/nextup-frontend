@@ -1,5 +1,6 @@
 'use client'
 
+import ImageSlider from "@/components/ImageSlider";
 import { Box, Button, Typography } from "@mui/material";
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
           flexDirection: "column",
           padding: "146px 20px 146px 120px",
           gap: "32px",
+          boxSizing: 'border-box',
+          width: "628px",
         }}>
 
           {/* Hero */}
@@ -47,6 +50,9 @@ export default function Home() {
         </Box>
 
         {/* Right side */}
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <ImageSlider />
+        </Box>
 
       </Box>
     </>
