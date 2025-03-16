@@ -1,18 +1,29 @@
-import { Box, InputBase, Typography, SxProps, Theme } from "@mui/material";
+import { Box, InputBase, Typography, SxProps, Theme, InputAdornment } from "@mui/material";
 
 interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
+  placeholder?: string;
   id: string;
-  error: boolean
-  errorText?: string
-  sx?: SxProps<Theme>; // Allows external styling
+  error: boolean;
+  errorText?: string;
+  icon?: React.ReactNode;
+  type?: string;
+  sx?: SxProps<Theme>;
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({ label, id, error, errorText, sx }) => {
+const CustomInput: React.FC<CustomInputProps> = ({
+  label,
+  placeholder,
+  id,
+  error,
+  errorText,
+  icon,
+  type,
+  sx }) => {
   return (
     <>
       <Box display="flex" flexDirection="column" sx={{ gap: "6px", ...sx }}>
-        
+
         <Typography
           component="label"
           htmlFor={id}
@@ -23,6 +34,8 @@ const CustomInput: React.FC<CustomInputProps> = ({ label, id, error, errorText, 
 
         <InputBase
           id={id}
+          type={type}
+          placeholder={placeholder}
           sx={{
             width: "100%",
             height: "40px",
@@ -46,6 +59,7 @@ const CustomInput: React.FC<CustomInputProps> = ({ label, id, error, errorText, 
             },
             ...sx,
           }}
+          startAdornment={icon ? <InputAdornment position="start">{icon}</InputAdornment> : null}
         />
       </Box>
       {error && errorText && (
