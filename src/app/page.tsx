@@ -1,66 +1,64 @@
 'use client'
 
 import ImageSlider from "@/components/ImageSlider";
-import CustomDateInput from "@/components/ui/CustomDateInput";
-import CustomInput from "@/components/ui/CustomInput";
+import CustomDateInput from "@/components/inputs/CustomDateInput";
+import CustomInput from "@/components/inputs/CustomInput";
 import LocationIcon from "@/components/ui/icons/LocationIcon";
 import { Box, Button, Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <>
-      <Box sx={{ display: "flex", backgroundColor: "secondary.main", margin: "0px" }}>
+    <Box sx={{ display: "flex", backgroundColor: "transparent", margin: "0px" }}>
 
-        {/* Left side */}
+      {/* Left side */}
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+        padding: "146px 20px 146px 120px",
+        gap: "32px",
+        boxSizing: 'border-box',
+        width: "628px",
+      }}>
+
+        {/* Hero */}
         <Box sx={{
           display: "flex",
           flexDirection: "column",
-          padding: "146px 20px 146px 120px",
-          gap: "32px",
-          boxSizing: 'border-box',
-          width: "628px",
+          gap: "16px"
         }}>
+          <Typography variant="h4" color="info">FIND THE BEST EVENTS</Typography>
+          <Typography variant="h1" color="primary">Are you looking for your next event?</Typography>
+        </Box>
 
-          {/* Hero */}
-          <Box sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px"
-          }}>
-            <Typography variant="h4" color="info">FIND THE BEST EVENTS</Typography>
-            <Typography variant="h1" color="primary">Are you looking for your next event?</Typography>
+        {/* Search */}
+        <Box sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px"
+        }}>
+          <Typography variant="caption" fontWeight={500}>FIND YOUR NEXT EVENT</Typography>
+          <Box sx={{ display: "flex" }}>
+            <CustomInput label="Location" placeholder="Enter location" id="location" error={false} icon={<LocationIcon />} />
+            <CustomDateInput label="Date" id="startDateTime" placeholder="Enter date" error={false} />
           </Box>
-
-          {/* Search */}
           <Box sx={{
             display: "flex",
-            flexDirection: "column",
-            gap: "16px"
+            justifyContent: "end",
           }}>
-            <Typography variant="caption" fontWeight={500}>FIND YOUR NEXT EVENT</Typography>
-            <Box sx={{ display: "flex" }}>
-              <CustomInput label="Location" placeholder="Enter location" id="location" error={false} icon={<LocationIcon />} />
-              <CustomDateInput label="Date" id="startDateTime" placeholder="Enter date" error={false} />
-            </Box>
             <Box sx={{
-              display: "flex",
-              justifyContent: "end",
+              width: "90px",
             }}>
-              <Box sx={{
-                width: "90px",
-              }}>
-                <Button variant="contained" color="primary">Search</Button>
-              </Box>
+              <Button variant="contained" color="primary">Search</Button>
             </Box>
           </Box>
         </Box>
-
-        {/* Right side */}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
-          <ImageSlider />
-        </Box>
-
       </Box>
-    </>
+
+      {/* Right side */}
+      <Box sx={{ flex: 1, minWidth: 0 }}>
+        <ImageSlider />
+      </Box>
+
+    </Box>
   )
 }

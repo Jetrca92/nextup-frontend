@@ -1,28 +1,29 @@
-import { Box, InputBase, Typography, SxProps, Theme, InputAdornment } from "@mui/material";
+import { Box, InputBase, Typography, SxProps, Theme, InputAdornment, IconButton } from "@mui/material";
+import { useState } from "react";
 
-interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface CustomPasswordInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   placeholder?: string;
   id: string;
   error: boolean;
   errorText?: string;
   icon?: React.ReactNode;
-  type?: string;
   sx?: SxProps<Theme>;
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({
+const CustomPasswordInput: React.FC<CustomPasswordInputProps> = ({
   label,
   placeholder,
   id,
   error,
   errorText,
   icon,
-  type,
   sx }) => {
+  const [showPassword, setShowPassword] = useState(false)
+  const togglePasswordVisibility = () => setShowPassword(!showPassword)
   return (
     <>
-      <Box display="flex" flexDirection="column" sx={{ gap: "6px", ...sx }}>
+      <Box display="flex" flexDirection="column" sx={{ gap: "6px", width: "100%", ...sx }}>
 
         <Typography
           component="label"
@@ -34,7 +35,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
         <InputBase
           id={id}
-          type={type}
+          type={showPassword ? 'text' : 'password'}
           placeholder={placeholder}
           sx={{
             width: "100%",
@@ -59,7 +60,13 @@ const CustomInput: React.FC<CustomInputProps> = ({
             },
             ...sx,
           }}
-          startAdornment={icon ? <InputAdornment position="start">{icon}</InputAdornment> : null}
+          endAdornment={icon ? (
+            <InputAdornment position="end">
+              <IconButton onClick={togglePasswordVisibility} edge="end">
+                {icon}
+              </IconButton>
+            </InputAdornment>
+          ) : null}
         />
       </Box>
       {error && errorText && (
@@ -71,4 +78,4 @@ const CustomInput: React.FC<CustomInputProps> = ({
   );
 };
 
-export default CustomInput;
+export default CustomPasswordInput;

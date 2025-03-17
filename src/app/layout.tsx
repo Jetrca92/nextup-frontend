@@ -43,6 +43,8 @@ export default function RootLayout({
                   width: "100%",
                   margin: 0,
                   padding: 0,
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >{children}</Container>
             </Box>
