@@ -8,7 +8,7 @@ import { Box, Button, Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <Box sx={{ display: "flex", backgroundColor: "transparent", margin: "0px" }}>
+    <Box sx={{ display: "flex", backgroundColor: "transparent", margin: "0px", width: "100%" }}>
 
       {/* Left side */}
       <Box sx={{
@@ -48,7 +48,7 @@ export default function Home() {
             <Box sx={{
               width: "90px",
             }}>
-              <Button variant="contained" color="primary">Search</Button>
+              <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Search</Button>
             </Box>
           </Box>
         </Box>

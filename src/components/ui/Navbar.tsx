@@ -30,16 +30,16 @@ const Navbar: FC = () => {
           display: "flex",
           gap: "48px",
         }}>
-          <Button variant='text' color='info'>Home</Button>
-          <Button variant='text' color='info'>Search</Button>
+          <Button variant='text' color='info' sx={{ textTransform: "none" }}>Home</Button>
+          <Button variant='text' color='info' sx={{ textTransform: "none" }}>Search</Button>
         </Box>
 
         <Box sx={{
           display: "flex",
           gap: "16px",
         }}>
-          <Button variant='text' color='info'>Login</Button>
-          <Button variant='contained' color='primary'>Sign up</Button>
+          <Button variant='text' color='info' sx={{ textTransform: "none" }}>Login</Button>
+          <Button variant='contained' color='primary' sx={{ textTransform: "none" }}>Sign up</Button>
         </Box>
       </Toolbar>
     </AppBar>

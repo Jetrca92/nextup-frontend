@@ -15,7 +15,7 @@ export default function Signup() {
       width: "592px",
       backgroundColor: "transparent",
       marginTop: "32px",
-      marginBottom: "294px",
+      marginBottom: "205px",
       gap: "16px",
     }}>
 
@@ -79,13 +79,13 @@ export default function Signup() {
           error={false}
           icon={<PasswordIcon />}
         />
-        <Button variant="contained" color="primary">Sign up</Button>
+        <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Sign up</Button>
         <Box sx={{
           display: "flex",
           justifyContent: "space-between",
         }}>
           <Typography variant="body1" color="info.main" sx={{ lineHeight: "20px" }}>Already have an account?</Typography>
-          <Button variant="text" color="primary" sx={{ height: "20px" }}>Sign in</Button>
+          <Button variant="text" color="primary" sx={{ height: "20px", textTransform: "none" }}>Sign in</Button>
         </Box>
       </Box>
 
