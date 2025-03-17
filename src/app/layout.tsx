@@ -32,18 +32,21 @@ export default function RootLayout({
             padding: 0,
             width: "100%"
           }}>
-            <Navbar />
-            <Container
-              maxWidth={false}
-              disableGutters
-              sx={{
-                bgcolor: "secondary.main",
-                flex: 1,
-                width: "100%",
-                margin: 0,
-                padding: 0,
-              }}
-            >{children}</Container>
+            <Box sx={{ bgcolor: "secondary.main" }}>
+              <Navbar />
+              <Container
+                maxWidth={false}
+                disableGutters
+                sx={{
+                  bgcolor: "transparent",
+                  flex: 1,
+                  width: "100%",
+                  margin: 0,
+                  padding: 0,
+                }}
+              >{children}</Container>
+            </Box>
+
             <Footer />
           </Box>
         </ThemeProvider>

@@ -9,10 +9,10 @@ const Navbar: FC = () => {
       sx={{
         width: "100%",
         height: "104px",
-        backgroundColor: "transparent",
         boxShadow: "none",
         padding: { xs: "16px 24px", sm: "24px 48px", md: "32px 120px" },
         boxSizing: 'border-box',
+        backgroundColor: "transparent",
       }}
     >
       <Toolbar
