@@ -23,7 +23,7 @@ const CustomDateInput: React.FC<CustomDateInputProps> = ({
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Box display="flex" flexDirection="column" sx={{ gap: "6px", ...sx }}>
+        <Box display="flex" flexDirection="column" sx={{ gap: "6px", width: "100%", ...sx }}>
 
           <Typography
             component="label"
@@ -35,10 +35,10 @@ const CustomDateInput: React.FC<CustomDateInputProps> = ({
 
           <DatePicker slotProps={{
             textField: {
-              variant: "outlined",
               placeholder,
               error: !!error,
               helperText: error ? errorText : "",
+              variant: "outlined",
               sx: {
                 boxSizing: "border-box",
                 width: "100%",
@@ -48,16 +48,22 @@ const CustomDateInput: React.FC<CustomDateInputProps> = ({
                 backgroundColor: "#FFFFFF",
                 border: error ? "1px solid #F04438" : "1px solid #FFFFFF",
                 fontSize: "1rem",
+                "& .MuiOutlinedInput-root": {
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    border: "none",
+                  },
+                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    border: "none",
+                  },
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  border: "1px solid transparent",
+                },
                 "& .MuiInputBase-root": {
                   paddingTop: 0,
                 },
                 "& .MuiInputBase-input": {
                   boxSizing: "border-box",
-                  color: "#000000",
-                },
-                "&.Mui-focused": {
-                  borderColor: "#2F3C7E",
-                  outline: "none",
                 },
                 "& input": {
                   "&::placeholder": {

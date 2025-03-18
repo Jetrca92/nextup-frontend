@@ -1,9 +1,7 @@
 'use client'
 
 import ImageSlider from "@/components/ImageSlider";
-import CustomDateInput from "@/components/inputs/CustomDateInput";
-import CustomInput from "@/components/inputs/CustomInput";
-import LocationIcon from "@/components/ui/icons/LocationIcon";
+import LocationDateInput from "@/components/inputs/LocationDateInput";
 import { Box, Button, Typography } from "@mui/material";
 
 export default function Home() {
@@ -37,10 +35,7 @@ export default function Home() {
           gap: "16px"
         }}>
           <Typography variant="caption" fontWeight={500}>FIND YOUR NEXT EVENT</Typography>
-          <Box sx={{ display: "flex" }}>
-            <CustomInput label="Location" placeholder="Enter location" id="location" error={false} icon={<LocationIcon />} />
-            <CustomDateInput label="Date" id="startDateTime" placeholder="Enter date" error={false} />
-          </Box>
+          <LocationDateInput />
           <Box sx={{
             display: "flex",
             justifyContent: "end",

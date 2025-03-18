@@ -22,7 +22,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   sx }) => {
   return (
     <>
-      <Box display="flex" flexDirection="column" sx={{ gap: "6px", width: "100%", ...sx }}>
+      <Box display="flex" flexDirection="column" sx={{ gap: "6px", width: "100%" }}>
 
         <Typography
           component="label"

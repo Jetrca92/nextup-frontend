@@ -77,8 +77,8 @@ export default function Event() {
           </Typography>
         </Box>
 
-        {/* Login cta if unauthenticated */}
-        {!authenticated && (
+        {/* Login cta if unauthenticated, attend if authenticated */}
+        {!authenticated ? (
           <Box sx={{
             display: "flex",
             flexDirection: "column",
@@ -88,6 +88,10 @@ export default function Event() {
               <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Log in</Button>
             </Box>
             <Typography variant="caption" color="#667085">To attend event you need to login.</Typography>
+          </Box>
+        ) : (
+          <Box sx={{ width: "79px" }}>
+            <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Attend</Button>
           </Box>
         )}
       </Box>
