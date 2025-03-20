@@ -1,24 +1,19 @@
-import { Box, Typography, SxProps, Theme, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import EditIcon from "./ui/icons/EditIcon";
+import { EventType } from "@/models/event";
 
 interface EventCardProps {
-  title: string;
-  startDateTime: string;
-  location: string;
-  authorized: boolean;
-  sx?: SxProps<Theme>;
+  event: EventType
 }
 
 const EventCard: React.FC<EventCardProps> = ({
-  title,
-  startDateTime,
-  location,
-  authorized,
+  event
 }) => {
+  const authorized = false
   return (
     <Box
       sx={{
-        width: "590px",
+        width: "100%",
         height: "auto",
         display: "flex",
         boxSizing: "border-box",
@@ -29,33 +24,36 @@ const EventCard: React.FC<EventCardProps> = ({
         overflow: "hidden",
       }}
     >
-      {/* Date */}
-      <Box
-        sx={{
-          width: "97px",
-          height: "auto",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Typography variant="h3">28. Aug</Typography>
-        <Typography variant="caption">Fri 22.00{startDateTime}</Typography>
+      {/* Date and title*/}
+      <Box sx={{ display: "flex", gap: "16px", width: "100%", }}>
+        {/* Date */}
+        <Box
+          sx={{
+            width: "97px",
+            height: "auto",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="h3">28. Aug</Typography>
+          <Typography variant="caption">Fri 22.00</Typography>
+        </Box>
+
+        {/* Title and location */}
+        <Box
+          sx={{
+            height: "auto",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="h3">{event.title}</Typography>
+          <Typography variant="caption" color="#667085">{event.location}</Typography>
+        </Box>
       </Box>
 
-      {/* Title and location */}
-      <Box
-        sx={{
-          width: "306px",
-          height: "auto",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Typography variant="h3">{title}</Typography>
-        <Typography variant="caption" color="#667085">{location}</Typography>
-      </Box>
 
-      <Box sx={{ width: "123px" }}>
+      <Box sx={{ width: "123px", flexShrink: 0 }}>
         {authorized ? (
           <Button variant="contained" color="primary" startIcon={<EditIcon />}>Edit</Button>
         ) : (

@@ -6,6 +6,7 @@ const commonBtnStyles = {
   height: 40,
   borderRadius: 32,
   padding: "10px 16px",
+  width: "100%",
 }
 
 const theme = createTheme({
@@ -127,7 +128,6 @@ const theme = createTheme({
           style: {
             backgroundColor: "primary.main",
             color: "#FFFFFF",
-            width: "100%",
             ...commonBtnStyles,
             "&.Mui-disabled": {
               backgroundColor: "#B6C2F2",
@@ -146,7 +146,6 @@ const theme = createTheme({
             border: "1px solid #2F3D7E",
             backgroundColor: "#FFFFFF",
             color: "#2F3D7E",
-            width: "100%",
             ...commonBtnStyles,
             "&.Mui-disabled": {
               border: "1px solid #DAE0F8",
