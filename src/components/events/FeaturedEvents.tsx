@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { EventType } from '@/models/event'
 import FeaturedEventCard from './FeaturedEventCard'
 
@@ -7,7 +7,7 @@ interface FeaturedEventsProps {
   events: EventType[]
 }
 const FeaturedEvents: FC<FeaturedEventsProps> = ({ events = [] }) => {
-  const [visibleCount, setVisibleCount] = useState(3)
+  const visibleCount = 3
 
   if (events?.length === 0)
     return

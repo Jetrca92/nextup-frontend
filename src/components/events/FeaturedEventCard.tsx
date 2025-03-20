@@ -14,13 +14,13 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
   return (
     <Box
       sx={{
-        width: "367px",
+        display: "flex",
+        flexDirection: "column",
+        maxWidth: "367px",
         height: "387px",
         boxSizing: "border-box",
         borderRadius: "32px",
-        borderWidth: "2px",
-        borderColor: "#D0D5DD",
-        borderStyle: "solid",
+        border: "2px solid #D0D5DD",
         overflow: "hidden",
         backgroundColor: "#FFFFFF",
       }}
@@ -42,7 +42,7 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
           alignItems: "center",
           flexDirection: "column",
           gap: "16px",
-          width: "367px",
+          width: "100%",
           height: "auto",
           padding: "16px", // Add padding for content inside the card
         }}
@@ -52,7 +52,7 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
           sx={{
             display: "flex",
             flexDirection: "column",
-            width: "335px",
+            width: "100%",
             height: "auto",
             gap: "4px",
           }}
@@ -65,7 +65,7 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
         <Box
           sx={{
             display: "flex",
-            width: "335px",
+            width: "100%",
             height: "auto",
             justifyContent: "space-between",
             alignItems: "center",
@@ -93,6 +93,7 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
         </Box>
 
         <Button variant="outlined" color="secondary">View</Button>
+
       </Box>
     </Box>
   );

@@ -30,14 +30,14 @@ export default function RootLayout({
             minHeight: "100vh",
             width: "100%"
           }}>
-            <Box sx={{ bgcolor: "secondary.main" }}>
+            <Box sx={{ bgcolor: "transparent" }}>
               <Navbar />
               <Container
                 component="main"
                 maxWidth={false}
                 disableGutters
                 sx={{
-                  bgcolor: "transparent",
+                  bgcolor: "white",
                   flex: 1,
                   width: "100%",
                   margin: 0,

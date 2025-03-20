@@ -7,6 +7,7 @@ const commonBtnStyles = {
   borderRadius: 32,
   padding: "10px 16px",
   width: "100%",
+  fontSize: "16px",
 }
 
 const theme = createTheme({
@@ -197,6 +198,7 @@ const theme = createTheme({
           props: { variant: "text", color: "info" },
           style: {
             color: "info.main",
+            fontSize: "16px",
             textDecoration: "none",
             "&:hover": {
               color: "#262021",
