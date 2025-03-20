@@ -28,13 +28,12 @@ export default function RootLayout({
             display: "flex",
             flexDirection: "column",
             minHeight: "100vh",
-            margin: 0,
-            padding: 0,
             width: "100%"
           }}>
             <Box sx={{ bgcolor: "secondary.main" }}>
               <Navbar />
               <Container
+                component="main"
                 maxWidth={false}
                 disableGutters
                 sx={{
