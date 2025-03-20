@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
-import EditIcon from "./ui/icons/EditIcon";
+import EditIcon from "../ui/icons/EditIcon";
 import { EventType } from "@/models/event";
 
 interface EventCardProps {

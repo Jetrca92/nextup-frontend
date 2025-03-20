@@ -1,6 +1,7 @@
 'use client'
 
-import EventsList from "@/components/EventsList";
+import EventsList from "@/components/events/EventsList";
+import FeaturedEvents from "@/components/events/FeaturedEvents";
 import LocationDateInput from "@/components/inputs/LocationDateInput";
 import { EventType } from "@/models/event";
 import { Box, Button, Typography } from "@mui/material";
@@ -10,7 +11,7 @@ export default function Search() {
     {
       id: "1",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?event",
+      imageUrl: "/images/landing1.jpg",
       title: "Mountain Trail Run",
       description: "A challenging trail run through the mountains.",
       location: "Rocky Mountains, CO",
@@ -20,9 +21,9 @@ export default function Search() {
       attendees: [],
     },
     {
-      id: "4",
+      id: "3",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?concert",
+      imageUrl: "/images/landing1.jpg",
       title: "Live Jazz Night",
       description: "Enjoy a night of smooth jazz music.",
       location: "New Orleans, LA",
@@ -33,18 +34,18 @@ export default function Search() {
     {
       id: "4",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?workshop",
+      imageUrl: "/images/landing1.jpg",
       title: "Photography Workshop",
       description: "Learn the basics of photography from experts.",
       location: "San Francisco, CA",
       startDateTime: "2025-06-20T14:00:00Z",
       maximumUsers: 50,
-      ownerId: "4",
+      ownerId: "6",
     },
     {
-      id: "4",
+      id: "7",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?conference",
+      imageUrl: "/images/landing1.jpg",
       title: "Tech Innovators Conference",
       description: "A gathering of the brightest minds in tech.",
       location: "Silicon Valley, CA",
@@ -53,9 +54,9 @@ export default function Search() {
       ownerId: "4",
     },
     {
-      id: "4",
+      id: "8",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?festival",
+      imageUrl: "/images/landing1.jpg",
       title: "Food Festival",
       description: "Taste the best street food from around the world.",
       location: "Austin, TX",
@@ -64,9 +65,9 @@ export default function Search() {
       ownerId: "4",
     },
     {
-      id: "4",
+      id: "9",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?yoga",
+      imageUrl: "/images/landing1.jpg",
       title: "Sunrise Yoga Session",
       description: "Start your day with a refreshing yoga session.",
       location: "Santa Monica Beach, CA",
@@ -75,9 +76,9 @@ export default function Search() {
       ownerId: "4",
     },
     {
-      id: "4",
+      id: "11",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?cycling",
+      imageUrl: "/images/landing1.jpg",
       title: "City Cycling Tour",
       description: "Explore the city on a guided cycling tour.",
       location: "Portland, OR",
@@ -86,9 +87,9 @@ export default function Search() {
       ownerId: "4",
     },
     {
-      id: "4",
+      id: "12",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?hiking",
+      imageUrl: "/images/landing1.jpg",
       title: "National Park Hike",
       description: "A guided hike through stunning landscapes.",
       location: "Yellowstone National Park, WY",
@@ -97,9 +98,9 @@ export default function Search() {
       ownerId: "4",
     },
     {
-      id: "4",
+      id: "13",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?coding",
+      imageUrl: "/images/landing1.jpg",
       title: "Hackathon Challenge",
       description: "Compete in a 48-hour coding challenge.",
       location: "Seattle, WA",
@@ -108,9 +109,9 @@ export default function Search() {
       ownerId: "4",
     },
     {
-      id: "4",
+      id: "14",
       createdAt: new Date().toISOString(),
-      imageUrl: "https://source.unsplash.com/random/800x600/?music",
+      imageUrl: "/images/landing1.jpg",
       title: "Indie Rock Concert",
       description: "Experience the best of indie rock bands live.",
       location: "Chicago, IL",
@@ -154,18 +155,21 @@ export default function Search() {
             <Typography variant="body1" color="#0E0E2C" fontWeight={500} sx={{ lineHeight: "24px" }}>SEARCH FOR EVENTS</Typography>
             <Typography variant="h1" color="primary" sx={{ lineHeight: "76px" }}>What is next?</Typography>
           </Box>
-          <Box sx={{
-            display: "flex",
-            gap: "16px",
-          }}>
-            <LocationDateInput />
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "32px" }}>
             <Box sx={{
-              width: "90px",
               display: "flex",
-              alignItems: "end",
+              gap: "16px",
             }}>
-              <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Search</Button>
+              <LocationDateInput />
+              <Box sx={{
+                width: "90px",
+                display: "flex",
+                alignItems: "end",
+              }}>
+                <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Search</Button>
+              </Box>
             </Box>
+            <FeaturedEvents events={mockResults} />
           </Box>
         </Box>
       </Box>

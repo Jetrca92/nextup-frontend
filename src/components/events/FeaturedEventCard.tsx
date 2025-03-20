@@ -1,23 +1,15 @@
-import { Box, Typography, SxProps, Theme, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import Image from "next/image";
-import LocationIcon from "./ui/icons/LocationIcon";
-import PeopleIcon from "./ui/icons/PeopleIcon";
+import LocationIcon from "../ui/icons/LocationIcon";
+import PeopleIcon from "../ui/icons/PeopleIcon";
+import { EventType } from "@/models/event";
 
 interface FeaturedEventCardProps {
-  imageSrc: string;
-  title: string;
-  startDateTime: string;
-  location: string;
-  attendance: number;
-  sx?: SxProps<Theme>;
+  event: EventType
 }
 
 const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
-  imageSrc,
-  title,
-  startDateTime,
-  location,
-  attendance
+  event
 }) => {
   return (
     <Box
@@ -27,14 +19,15 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
         boxSizing: "border-box",
         borderRadius: "32px",
         borderWidth: "2px",
-        borderColor: "#000000",
+        borderColor: "#D0D5DD",
         borderStyle: "solid",
         overflow: "hidden",
+        backgroundColor: "#FFFFFF",
       }}
     >
       {/* Image Section */}
       <Image
-        src={imageSrc}
+        src={event.imageUrl}
         alt="card image"
         width={367}
         height={207}
@@ -64,8 +57,8 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
             gap: "4px",
           }}
         >
-          <Typography variant="h3" color="primary.main">{title}</Typography>
-          <Typography variant="caption" color="#667085">{startDateTime}</Typography>
+          <Typography variant="h3" color="primary.main">{event.title}</Typography>
+          <Typography variant="caption" color="#667085">{event.startDateTime}</Typography>
         </Box>
 
         {/* Location & attendance */}
@@ -86,7 +79,7 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
             }}
           >
             <LocationIcon />
-            <Typography variant="caption" color="#667085">{location}</Typography>
+            <Typography variant="caption" color="#667085">{event.location}</Typography>
           </Box>
           <Box
             sx={{
@@ -94,7 +87,7 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
               gap: "4px",
             }}
           >
-            <Typography variant="caption" color="#667085">{attendance}</Typography>
+            <Typography variant="caption" color="#667085">{event.attendees?.length}</Typography>
             <PeopleIcon />
           </Box>
         </Box>

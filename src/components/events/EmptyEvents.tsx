@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { FC } from 'react'
-import SearchIcon from './ui/icons/SearchIcon'
+import SearchIcon from '../ui/icons/SearchIcon'
 
 const EmptyEvents: FC = () => {
   return (
