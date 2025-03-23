@@ -6,6 +6,7 @@ import { EventType } from "@/models/event";
 import { Box, Typography } from "@mui/material";
 
 export default function Search() {
+  const emptyEvents: EventType[] = []
   const mockUser: UserType = {
     id: "123",
     createdAt: "2025-12-15T20:00:00Z",
@@ -147,7 +148,7 @@ export default function Search() {
         gap: "20px",
       }}>
         <UserUpcomingEvents events={mockEvents} past={false} />
-        <UserUpcomingEvents events={mockEvents} past={true} />
+        <UserUpcomingEvents events={emptyEvents} past={true} />
       </Box>
     </Box>
   )

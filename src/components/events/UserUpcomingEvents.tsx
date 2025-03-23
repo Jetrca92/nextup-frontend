@@ -1,13 +1,14 @@
 import { Box, Button, Typography } from '@mui/material'
 import { FC, useState } from 'react'
 import EventCard from './EventCard'
-import EmptyEvents from './EmptyEvents'
 import { EventType } from '@/models/event'
+import UserEmptyEvents from './UserEmptyEvents'
 
 interface UserUpcomingEventsProps {
   past: boolean
   events: EventType[]
 }
+
 const UserUpcomingEvents: FC<UserUpcomingEventsProps> = ({ events = [], past }) => {
   const [visibleCount, setVisibleCount] = useState(4)
 
@@ -16,7 +17,7 @@ const UserUpcomingEvents: FC<UserUpcomingEventsProps> = ({ events = [], past }) 
   }
 
   if (events?.length === 0)
-    return <EmptyEvents />
+    return <UserEmptyEvents past />
 
   return (
     <Box sx={{
