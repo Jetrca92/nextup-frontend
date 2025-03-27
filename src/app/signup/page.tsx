@@ -39,55 +39,7 @@ export default function Signup() {
       </Box>
 
       {/* Signup form */}
-      <Box sx={{
-        display: "flex",
-        width: "100%",
-        flexDirection: "column",
-        gap: "16px",
-      }}>
-        <Box sx={{
-          display: "flex",
-          gap: "16px",
-        }}>
-          <CustomInput
-            label="First name"
-            id="firstName"
-            error={false}
-          />
-          <CustomInput
-            label="Last name"
-            id="lastName"
-            error={false}
-          />
-        </Box>
-        <CustomInput
-          label="Email"
-          id="email"
-          error={false}
-          type="email"
-          icon={<EmailIcon />}
-        />
-        <CustomPasswordInput
-          label="Password"
-          id="password"
-          error={false}
-          icon={<PasswordIcon />}
-        />
-        <CustomPasswordInput
-          label="Confirm password"
-          id="confirmPassword"
-          error={false}
-          icon={<PasswordIcon />}
-        />
-        <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Sign up</Button>
-        <Box sx={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}>
-          <Typography variant="body1" color="info.main" sx={{ lineHeight: "20px" }}>Already have an account?</Typography>
-          <Button variant="text" color="primary" sx={{ height: "20px", textTransform: "none" }}>Sign in</Button>
-        </Box>
-      </Box>
+
 
 
     </Box>

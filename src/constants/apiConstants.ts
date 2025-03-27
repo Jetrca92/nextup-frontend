@@ -12,6 +12,7 @@ export enum apiRoutes {
   // Event
   FETCH_EVENTS = '/events',
   FETCH_USER_EVENTS = '/events/user-events',
+  UPLOAD_EVENT_IMAGE_PREFIX = '/events/upload',
   // Log
   LOG_PREFIX = '/log',
 }
