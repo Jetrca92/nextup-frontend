@@ -2,6 +2,8 @@ import { AppBar, Box, Button, Toolbar } from '@mui/material';
 import { FC } from 'react'
 import NavbarLogo from './images/NavbarLogo';
 import NavbarAvatar from './images/NavbarAvatar';
+import Link from 'next/link';
+import { routes } from '@/constants/routesContants';
 
 const Navbar: FC = () => {
   const authenticated = true
@@ -27,16 +29,22 @@ const Navbar: FC = () => {
           padding: "0px !important",
         }}
       >
-        <NavbarLogo />
-
+        <Link href={routes.HOME}><NavbarLogo /></Link>
         <Box sx={{
           display: "flex",
           gap: "48px",
         }}>
-          <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Home</Button>
-          <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Search</Button>
+          <Link href={routes.HOME}>
+            <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Home</Button>
+          </Link>
+          <Link href={routes.SEARCH}>
+            <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Search</Button>
+          </Link>
+
           {authenticated && (
-            <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Event manager</Button>
+            <Link href={routes.EVENT_MANAGER}>
+              <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Event manager</Button>
+            </Link>
           )}
         </Box>
 
@@ -48,10 +56,9 @@ const Navbar: FC = () => {
             <>
               <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Logout</Button>
               <Box sx={{ width: "40px", height: "40px" }}>
-                <NavbarAvatar />
+                <Link href={routes.PROFILE}><NavbarAvatar /></Link>
               </Box>
             </>
-
           ) : (
             <>
               <Button variant='text' color='info' sx={{ textTransform: "none" }}>Login</Button>

@@ -30,7 +30,7 @@ const EventsList: FC<EventsListProps> = ({ events = [] }) => {
       ))}
       {visibleCount < events.length && (
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Box sx={{ width: "118px", flexShrink: 0 }}>
+          <Box sx={{ width: "120px", flexShrink: 0 }}>
             <Button variant='contained' color='info' onClick={loadMore} sx={{ textTransform: "none" }}>Load more</Button>
           </Box>
         </Box>

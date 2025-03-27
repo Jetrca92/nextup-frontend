@@ -38,7 +38,7 @@ const UserUpcomingEvents: FC<UserUpcomingEventsProps> = ({ events = [], past }) 
         ))}
         {visibleCount < events.length && (
           <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Box sx={{ width: "118px" }}>
+            <Box sx={{ width: "119px", flexShrink: 0 }}>
               <Button variant='contained' color='info' onClick={loadMore} sx={{ textTransform: "none" }}>Load more</Button>
             </Box>
           </Box>

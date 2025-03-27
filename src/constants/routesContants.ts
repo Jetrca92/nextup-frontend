@@ -7,4 +7,5 @@ export enum routes {
   PROFILE = '/profile',
   SEARCH = '/search',
   EVENT = '/event',
+  EVENT_MANAGER = '/event-manager',
 }
