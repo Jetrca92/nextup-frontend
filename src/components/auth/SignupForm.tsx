@@ -6,7 +6,7 @@ import {
 import * as API from '../../api/Api'
 import { useDispatch, useSelector } from 'react-redux'
 import { Controller } from 'react-hook-form'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, FormControl, FormLabel, Input, Typography } from '@mui/material'
 import CustomInput from '../inputs/CustomInput'
 import EmailIcon from '../ui/icons/EmailIcon'
 import CustomPasswordInput from '../inputs/CustomPasswordInput'
@@ -18,6 +18,7 @@ import { clearAllErrors, setError } from '@/store/errorSlice'
 import { isValidFile, uploadUserAvatar } from '@/utils/fileUtils'
 import { ErrorType } from '@/constants/errorConstants'
 import { login } from '@/store/authSlice'
+import Avatar from '../ui/images/Avatar'
 
 const SignupForm: FC = () => {
   const dispatch = useDispatch()
@@ -29,8 +30,6 @@ const SignupForm: FC = () => {
 
   const [file, setFile] = useState<File | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
-  const [showPassword, setShowPassword] = useState(false)
-  const [showRepeatPassword, setShowRepeatPassword] = useState(false)
 
   useEffect(() => {
     dispatch(clearAllErrors())
@@ -54,10 +53,6 @@ const SignupForm: FC = () => {
     reader.readAsDataURL(file)
   }, [file])
 
-  const togglePasswordVisibility = () => setShowPassword(!showPassword)
-  const toggleRepeatPasswordVisibility = () =>
-    setShowRepeatPassword(!showRepeatPassword)
-
   const onSubmit = handleSubmit(async (data: RegisterUserFields) => {
     if (!file) {
       dispatch(
@@ -80,7 +75,6 @@ const SignupForm: FC = () => {
 
       await uploadUserAvatar(
         loginResponse.data.access_token,
-        response.data.id,
         file,
         dispatch,
       )
@@ -99,55 +93,147 @@ const SignupForm: FC = () => {
   })
 
   return (
-    <Box sx={{
-      display: "flex",
-      width: "100%",
-      flexDirection: "column",
-      gap: "16px",
-    }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      {/* Form title text */}
       <Box sx={{
         display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+      }}>
+        <Typography variant="h2" color="primary">Hello!</Typography>
+        <Typography variant="h4" color="textPrimary" fontWeight={400} sx={{ lineHeight: "30px" }}>Get started with your free account today.</Typography>
+      </Box>
+
+      {/* Upload profile picture */}
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+        {preview ? (
+          <Avatar imageSrc={preview} />
+        ) : (
+          <FormControl>
+            <FormLabel sx={{ cursor: "pointer" }}><Avatar /></FormLabel>
+            <Input
+              onChange={handleFileChange}
+              id="image"
+              name="image"
+              type="file"
+              style={{ display: 'none' }}
+            />
+          </FormControl>
+        )}
+        {showFileError && (
+          <Typography variant="body2" color="#F04438" sx={{ fontSize: "0.875rem" }}>{fileError}</Typography>
+        )}
+      </Box>
+
+      {/* Signup form */}
+      <Box sx={{
+        display: "flex",
+        width: "100%",
+        flexDirection: "column",
         gap: "16px",
       }}>
-        <CustomInput
-          label="First name"
-          id="firstName"
-          error={false}
-        />
-        <CustomInput
-          label="Last name"
-          id="lastName"
-          error={false}
-        />
-      </Box>
-      <CustomInput
-        label="Email"
-        id="email"
-        error={false}
-        type="email"
-        icon={<EmailIcon />}
-      />
-      <CustomPasswordInput
-        label="Password"
-        id="password"
-        error={false}
-        icon={<PasswordIcon />}
-      />
-      <CustomPasswordInput
-        label="Confirm password"
-        id="confirmPassword"
-        error={false}
-        icon={<PasswordIcon />}
-      />
-      <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Sign up</Button>
-      <Box sx={{
-        display: "flex",
-        justifyContent: "space-between",
-      }}>
-        <Typography variant="body1" color="info.main" sx={{ lineHeight: "20px" }}>Already have an account?</Typography>
-        <Button variant="text" color="primary" sx={{ height: "20px", textTransform: "none" }}>Sign in</Button>
+        <form onSubmit={onSubmit}>
+          <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+          }}>
+
+            <Box sx={{
+              display: "flex",
+              gap: "16px",
+            }}>
+              <Controller
+                name='firstName'
+                control={control}
+                render={({ field }) => (
+                  <CustomInput
+                    {...field}
+                    label="First name"
+                    id="firstName"
+                    error={!!errors.firstName}
+                    errorText={errors.firstName?.message}
+                  />
+                )}
+              />
+              <Controller
+                name='lastName'
+                control={control}
+                render={({ field }) => (
+                  <CustomInput
+                    {...field}
+                    label="Last name"
+                    id="lastName"
+                    error={!!errors.lastName}
+                    errorText={errors.lastName?.message}
+                  />
+                )}
+              />
+            </Box>
+            <Controller
+              name='email'
+              control={control}
+              render={({ field }) => (
+                <CustomInput
+                  {...field}
+                  label="Email"
+                  id="email"
+                  type="email"
+                  error={!!errors.email}
+                  errorText={errors.email?.message}
+                  icon={<EmailIcon />}
+                />
+              )}
+            />
+            <Controller
+              name='password'
+              control={control}
+              render={({ field }) => (
+                <CustomPasswordInput
+                  {...field}
+                  label="Password"
+                  id="password"
+                  error={!!errors.password}
+                  errorText={errors.password?.message}
+                  icon={<PasswordIcon />}
+                />
+              )}
+            />
+            <Controller
+              name='confirmPassword'
+              control={control}
+              render={({ field }) => (
+                <CustomPasswordInput
+                  {...field}
+                  label="Confirm password"
+                  id="password"
+                  error={!!errors.confirmPassword}
+                  errorText={errors.confirmPassword?.message}
+                  icon={<PasswordIcon />}
+                />
+              )}
+            />
+            <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Sign up</Button>
+            {showApiError && (
+              <Typography variant="body2" color="#F04438" sx={{ fontSize: "0.875rem" }}>{apiError}</Typography>
+            )}
+            <Box sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}>
+              <Typography variant="body1" color="info.main" sx={{ lineHeight: "20px" }}>Already have an account?</Typography>
+              <Button variant="text" color="primary" sx={{ height: "20px", textTransform: "none" }}>Sign in</Button>
+            </Box>
+          </Box>
+        </form>
       </Box>
     </Box>
+
   )
 }
 

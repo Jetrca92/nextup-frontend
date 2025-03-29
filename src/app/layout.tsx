@@ -25,11 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className} style={{ margin: 0, padding: 0 }}>
-        <ThemeProvider theme={theme}>
-          <Provider store={store}>
-            <ClientLayout>{children}</ClientLayout>
-          </Provider>
-        </ThemeProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )

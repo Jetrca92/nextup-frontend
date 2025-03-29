@@ -1,16 +1,17 @@
 import Image from "next/image"
 import { FC } from "react"
 
-interface EmptyAvatarProps {
+interface AvatarProps {
   width?: number
   height?: number
+  imageSrc?: string
 }
 
-const EmptyAvatar: FC<EmptyAvatarProps> = ({ width = 64, height = 64 }) => {
+const Avatar: FC<AvatarProps> = ({ width = 64, height = 64, imageSrc = "/images/empty-avatar.png" }) => {
   return (
     <Image
-      src="/images/empty-avatar.png"
-      alt="Empty avatar"
+      src={imageSrc}
+      alt="Avatar"
       width={width}
       height={height}
       style={{
@@ -21,4 +22,4 @@ const EmptyAvatar: FC<EmptyAvatarProps> = ({ width = 64, height = 64 }) => {
   )
 }
 
-export default EmptyAvatar
+export default Avatar

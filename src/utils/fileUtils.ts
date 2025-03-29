@@ -20,7 +20,6 @@ export const isValidFile = (file: File | null, dispatch: AppDispatch) => {
 
 export const uploadUserAvatar = async (
   token: string,
-  userId: string,
   file: File,
   dispatch: AppDispatch,
 ) => {
@@ -30,7 +29,6 @@ export const uploadUserAvatar = async (
     const imageResponse = await API.uploadUserImage(
       token,
       formData,
-      userId,
       dispatch,
     )
     if (!imageResponse) return

@@ -2,7 +2,7 @@ import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow }
 import { FC } from 'react'
 import { UserActivityType } from '@/models/activity'
 import EmptyActivity from './EmptyActivity'
-import EmptyAvatar from '../ui/images/EmptyAvatar'
+import EmptyAvatar from '../ui/images/Avatar'
 
 interface ActivitiesTableProps {
   activities: UserActivityType[]

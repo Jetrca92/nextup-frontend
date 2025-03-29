@@ -4,9 +4,16 @@ import NavbarLogo from './images/NavbarLogo';
 import NavbarAvatar from './images/NavbarAvatar';
 import Link from 'next/link';
 import { routes } from '@/constants/routesContants';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser, signout } from '@/store/authSlice';
 
 const Navbar: FC = () => {
-  const authenticated = true
+  const dispatch = useDispatch()
+  const user = useSelector(selectUser)
+  const logout = () => {
+    dispatch(signout())
+  }
+
   return (
     <AppBar
       position="static"
@@ -41,7 +48,7 @@ const Navbar: FC = () => {
             <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Search</Button>
           </Link>
 
-          {authenticated && (
+          {user && (
             <Link href={routes.EVENT_MANAGER}>
               <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Event manager</Button>
             </Link>
@@ -52,17 +59,17 @@ const Navbar: FC = () => {
           display: "flex",
           gap: "16px",
         }}>
-          {authenticated ? (
+          {user ? (
             <>
-              <Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Logout</Button>
+              <Link href={routes.HOME} onClick={logout}><Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Logout</Button></Link>
               <Box sx={{ width: "40px", height: "40px" }}>
                 <Link href={routes.PROFILE}><NavbarAvatar /></Link>
               </Box>
             </>
           ) : (
             <>
-              <Button variant='text' color='info' sx={{ textTransform: "none" }}>Login</Button>
-              <Button variant='contained' color='primary' sx={{ textTransform: "none" }}>Sign up</Button>
+              <Link href={routes.LOGIN}><Button variant='text' color='info' sx={{ textTransform: "none" }}>Login</Button></Link>
+              <Link href={routes.SIGNUP}><Button variant='contained' color='primary' sx={{ textTransform: "none" }}>Sign up</Button></Link>
             </>
           )}
         </Box>
