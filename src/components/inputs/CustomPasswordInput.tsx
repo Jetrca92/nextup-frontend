@@ -18,11 +18,15 @@ const CustomPasswordInput: React.FC<CustomPasswordInputProps> = ({
   error,
   errorText,
   icon,
-  sx }) => {
+  sx,
+  value,
+  onChange,
+  onBlur,
+}) => {
   const [showPassword, setShowPassword] = useState(false)
   const togglePasswordVisibility = () => setShowPassword(!showPassword)
   return (
-    <>
+    <Box display="flex" flexDirection="column">
       <Box display="flex" flexDirection="column" sx={{ gap: "6px", width: "100%", ...sx }}>
 
         <Typography
@@ -34,9 +38,12 @@ const CustomPasswordInput: React.FC<CustomPasswordInputProps> = ({
         </Typography>
 
         <InputBase
-          id={id}
           type={showPassword ? 'text' : 'password'}
+          value={value}
+          onBlur={onBlur}
+          onChange={onChange}
           placeholder={placeholder}
+          name={id}
           sx={{
             width: "100%",
             height: "40px",
@@ -74,7 +81,7 @@ const CustomPasswordInput: React.FC<CustomPasswordInputProps> = ({
           {errorText}
         </Typography>
       )}
-    </>
+    </Box>
   );
 };
 

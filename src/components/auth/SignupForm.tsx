@@ -54,6 +54,7 @@ const SignupForm: FC = () => {
   }, [file])
 
   const onSubmit = handleSubmit(async (data: RegisterUserFields) => {
+    console.log(errors)
     if (!file) {
       dispatch(
         setError({ type: ErrorType.FILE, message: 'Please upload an avatar' }),
@@ -63,7 +64,7 @@ const SignupForm: FC = () => {
 
     const { confirmPassword, ...submitData } = data
     try {
-      const response = await API.signup(submitData, dispatch)
+      await API.signup(submitData, dispatch)
 
       const loginResponse = await API.login(
         {
@@ -115,7 +116,7 @@ const SignupForm: FC = () => {
           <Avatar imageSrc={preview} />
         ) : (
           <FormControl>
-            <FormLabel sx={{ cursor: "pointer" }}><Avatar /></FormLabel>
+            <FormLabel htmlFor="image" sx={{ cursor: "pointer" }}><Avatar /></FormLabel>
             <Input
               onChange={handleFileChange}
               id="image"
@@ -211,14 +212,14 @@ const SignupForm: FC = () => {
                 <CustomPasswordInput
                   {...field}
                   label="Confirm password"
-                  id="password"
+                  id="confirmPassword"
                   error={!!errors.confirmPassword}
                   errorText={errors.confirmPassword?.message}
                   icon={<PasswordIcon />}
                 />
               )}
             />
-            <Button variant="contained" color="primary" sx={{ textTransform: "none" }}>Sign up</Button>
+            <Button variant="contained" color="primary" sx={{ textTransform: "none" }} type='submit'>Sign up</Button>
             {showApiError && (
               <Typography variant="body2" color="#F04438" sx={{ fontSize: "0.875rem" }}>{apiError}</Typography>
             )}

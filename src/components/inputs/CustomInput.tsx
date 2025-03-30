@@ -19,9 +19,13 @@ const CustomInput: React.FC<CustomInputProps> = ({
   errorText,
   icon,
   type,
-  sx }) => {
+  sx,
+  value,
+  onChange,
+  onBlur,
+}) => {
   return (
-    <Box display="flex" sx={{ width: "100%" }}>
+    <Box display="flex" flexDirection="column" sx={{ width: "100%" }}>
       <Box display="flex" flexDirection="column" sx={{ gap: "6px", width: "100%" }}>
 
         <Typography
@@ -33,9 +37,12 @@ const CustomInput: React.FC<CustomInputProps> = ({
         </Typography>
 
         <InputBase
-          id={id}
           type={type}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
           placeholder={placeholder}
+          name={id}
           sx={{
             width: "100%",
             height: "40px",
