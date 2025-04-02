@@ -22,9 +22,6 @@ export async function apiRequest<D = Record<string, unknown>, R = unknown>(
   } & AxiosRequestConfig,
 ) {
   try {
-    console.log("⚡ API Request:", method, path);
-    console.log("🌎 Base URL:", process.env.NEXT_PUBLIC_API_URL);
-    console.log("📩 Request Data:", input);
     const response = await Axios.request<R>({
       baseURL: process.env.NEXT_PUBLIC_API_URL,
       url: path,
@@ -37,7 +34,7 @@ export async function apiRequest<D = Record<string, unknown>, R = unknown>(
     return response
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.error("❌ API Error:", error);
+    //console.error("❌ API Error:", error);
     return error.response
   }
 }

@@ -13,8 +13,9 @@ export const login = async (data: LoginUserFields, dispatch: Dispatch) => {
     data,
   )
   if (response.data?.statusCode) {
+    console.log(response.data.message)
     dispatch(setError({ type: ErrorType.API, message: response.data.message }))
-    return
+    throw new Error(response.data.message)
   }
   return response
 }
