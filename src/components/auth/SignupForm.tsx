@@ -42,7 +42,6 @@ const SignupForm: FC = () => {
       setFile(myfile)
     }
   }
-
   useEffect(() => {
     if (!file) {
       setPreview(null)
@@ -54,7 +53,6 @@ const SignupForm: FC = () => {
   }, [file])
 
   const onSubmit = handleSubmit(async (data: RegisterUserFields) => {
-    console.log(errors)
     if (!file) {
       dispatch(
         setError({ type: ErrorType.FILE, message: 'Please upload an avatar' }),
@@ -62,9 +60,14 @@ const SignupForm: FC = () => {
       return
     }
 
-    const { confirmPassword, ...submitData } = data
     try {
-      await API.signup(submitData, dispatch)
+      const { confirmPassword, ...signupData } = data
+      const signupResponse = await API.signup(signupData, dispatch)
+      if (!signupResponse || !signupResponse.data) {
+        console.error("Signup response is undefined:", signupResponse);
+        dispatch(setError({ type: ErrorType.API, message: "Signup failed. No response received." }));
+        return;
+      }
 
       const loginResponse = await API.login(
         {
@@ -73,6 +76,7 @@ const SignupForm: FC = () => {
         },
         dispatch,
       )
+      console.log(loginResponse.data.access_token)
 
       await uploadUserAvatar(
         loginResponse.data.access_token,
@@ -87,7 +91,7 @@ const SignupForm: FC = () => {
       dispatch(
         setError({
           type: ErrorType.API,
-          message: 'Failed to complete signup process.',
+          message: `Failed to complete signup process. ${error}`,
         }),
       )
     }
