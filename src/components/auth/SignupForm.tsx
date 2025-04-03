@@ -76,7 +76,6 @@ const SignupForm: FC = () => {
         },
         dispatch,
       )
-      console.log(loginResponse.data.access_token)
 
       await uploadUserAvatar(
         loginResponse.data.access_token,

@@ -30,11 +30,9 @@ export async function apiRequest<D = Record<string, unknown>, R = unknown>(
       headers: options?.headers,
       withCredentials: true,
     })
-    console.log("✅ API Response:", response.data);
     return response
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    //console.error("❌ API Error:", error);
     return error.response
   }
 }

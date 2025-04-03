@@ -13,7 +13,6 @@ export const login = async (data: LoginUserFields, dispatch: Dispatch) => {
     data,
   )
   if (response.data?.statusCode) {
-    console.log(response.data.message)
     dispatch(setError({ type: ErrorType.API, message: response.data.message }))
     throw new Error(response.data.message)
   }
@@ -22,15 +21,11 @@ export const login = async (data: LoginUserFields, dispatch: Dispatch) => {
 
 export const signup = async (data: ApiRegisterUser, dispatch: Dispatch) => {
   try {
-    console.log("🚀 Calling apiRequest with:", data);
-
     const response = await apiRequest<ApiRegisterUser, void>(
       apiMethods.POST,
       apiRoutes.SIGNUP,
       data
     );
-
-    console.log("📢 Response from apiRequest:", response); // Should log API response
 
     if (response?.data?.statusCode) {
       dispatch(setError({ type: ErrorType.API, message: response.data.message }));

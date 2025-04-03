@@ -63,7 +63,7 @@ const Navbar: FC = () => {
             <>
               <Link href={routes.HOME} onClick={logout}><Button variant='text' color='info' sx={{ textTransform: "none", fontWeight: 400 }}>Logout</Button></Link>
               <Box sx={{ width: "40px", height: "40px" }}>
-                <Link href={routes.PROFILE}><NavbarAvatar /></Link>
+                <Link href={routes.PROFILE}><NavbarAvatar imageSrc={user.avatarUrl} /></Link>
               </Box>
             </>
           ) : (

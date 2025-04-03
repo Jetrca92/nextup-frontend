@@ -1,11 +1,15 @@
 import Image from "next/image"
 import { FC } from "react"
 
-const NavbarAvatar: FC = () => {
+interface NavbarAvatarProps {
+  imageSrc?: string
+}
+
+const NavbarAvatar: FC<NavbarAvatarProps> = ({ imageSrc = "/images/empty-avatar.png" }) => {
   return (
     <Image
-      src="/images/empty-avatar.png"
-      alt="Navbar avatar"
+      src={imageSrc}
+      alt="User avatar"
       width={40}
       height={40}
       style={{
